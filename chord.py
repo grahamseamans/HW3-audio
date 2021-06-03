@@ -1,3 +1,5 @@
+# Graham Seamans
+
 import soundfile as sf
 import numpy as np
 import argparse
@@ -18,7 +20,7 @@ base = args.base
 if len(base) == 1:
     base_note = base
     is_minor = False
-if len(base) == 2:
+elif len(base) == 2:
     if base[1] == "m":
         base_note = base[0]
         is_minor = True
@@ -67,14 +69,14 @@ note_dict = {
     "G": 783.99,
 }
 
-minor = [0, 4, 7]
-major = [0, 3, 7]
+minor = [0, 3, 7]
+major = [0, 4, 7]
 
 
 def make_sine(frequency, len, sample_rate):
     buffer = []
-    for i in range(samplerate * len):
-        buffer.append(math.sin(frequency * (2 * math.pi) * i / samplerate) / 6)
+    for i in range(sample_rate * len):
+        buffer.append(math.sin(frequency * (2 * math.pi) * i / sample_rate) / 6)
     return buffer
 
 
